@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Futurithm Academy | Private Mentorship</title>
+  <meta name="description" content="Private futures trading mentorship for beginners, strategy development, and prop firm challenge coaching." />
+  <style>
+    :root{
+      --bg:#04070d;
+      --bg2:#07111d;
+      --card:rgba(255,255,255,.03);
+      --line:rgba(56,211,255,.18);
+      --text:#eef6ff;
+      --muted:#9fb2c5;
+      --accent:#59d8ff;
+      --accent2:#35bfff;
+      --btn:#52d6ff;
+      --btnText:#07111d;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(53,191,255,.12), transparent 35%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+    }
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1180px;margin:0 auto;padding:0 22px}
+    .nav{
+      position:sticky;top:0;z-index:10;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background:rgba(4,7,13,.86);
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      min-height:74px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:14px;font-weight:700;letter-spacing:.24em;
+    }
+    .brand-badge{
+      width:42px;height:42px;border-radius:12px;
+      display:grid;place-items:center;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(82,214,255,.14), rgba(53,191,255,.08));
+      box-shadow:0 0 30px rgba(82,214,255,.12);
+      color:var(--accent);
+      font-weight:900;font-size:22px;
+    }
+    .brand small{
+      display:block;
+      font-size:10px;
+      color:var(--accent);
+      letter-spacing:.34em;
+      margin-top:4px;
+    }
+    .nav-links{display:flex;gap:26px;color:#d9e8f7;font-size:14px}
+    .hero{padding:76px 0 44px}
+    .eyebrow{
+      display:inline-flex;
+      border:1px solid rgba(82,214,255,.2);
+      background:rgba(82,214,255,.08);
+      border-radius:999px;
+      padding:8px 14px;
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.28em;
+      font-size:11px;
+    }
+    h1{
+      font-size:clamp(42px,7vw,74px);
+      line-height:1.03;
+      letter-spacing:-.04em;
+      margin:18px 0 18px;
+      max-width:900px;
+    }
+    .lead{
+      font-size:20px;line-height:1.75;color:var(--muted);max-width:820px;
+    }
+    .hero-actions{
+      display:flex;gap:16px;flex-wrap:wrap;margin-top:30px;
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:54px;padding:0 24px;border-radius:16px;font-weight:700;
+      transition:.18s ease;cursor:pointer;border:1px solid transparent;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--btn),var(--accent2));
+      color:var(--btnText);
+      box-shadow:0 0 28px rgba(82,214,255,.18);
+    }
+    .btn-secondary{
+      border-color:rgba(82,214,255,.22);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:24px;
+      margin:42px 0 28px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:26px;
+      padding:28px;
+      box-shadow:0 18px 48px rgba(0,0,0,.28);
+      display:flex;flex-direction:column;
+    }
+    .card.featured{
+      border-color:rgba(82,214,255,.28);
+      background:linear-gradient(180deg, rgba(82,214,255,.10), rgba(255,255,255,.03));
+    }
+    .tag{
+      display:inline-flex;
+      width:max-content;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.25em;
+      color:var(--accent);
+      border:1px solid rgba(82,214,255,.18);
+      background:rgba(82,214,255,.08);
+      border-radius:999px;
+      padding:7px 11px;
+      margin-bottom:18px;
+    }
+    .card h2{
+      font-size:27px;line-height:1.15;margin:0 0 12px;
+    }
+    .price{
+      font-size:42px;font-weight:800;color:var(--accent);margin-bottom:14px;
+    }
+    .desc{color:var(--muted);line-height:1.7;margin-bottom:18px}
+    ul{
+      margin:0 0 20px 18px;padding:0;color:#dfeafb;line-height:1.8;
+      flex:1;
+    }
+    li{margin-bottom:4px}
+    .section{padding:22px 0 62px}
+    .section h3{font-size:34px;margin:0 0 12px}
+    .section p{color:var(--muted);line-height:1.8;max-width:860px}
+    .two-col{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:26px;
+    }
+    .box{
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:26px;
+      background:rgba(255,255,255,.03);
+      padding:28px;
+    }
+    .box h4{margin:0 0 12px;font-size:24px}
+    .check{
+      display:flex;gap:12px;align-items:flex-start;margin:14px 0;color:#dfeafb
+    }
+    .check b{
+      width:28px;height:28px;border-radius:999px;
+      display:grid;place-items:center;background:rgba(82,214,255,.1);
+      color:var(--accent);font-size:14px;flex:0 0 28px;
+    }
+    .cta{
+      margin:24px 0 10px;
+      padding:36px;
+      border-radius:30px;
+      border:1px solid rgba(82,214,255,.22);
+      background:linear-gradient(180deg, rgba(82,214,255,.10), rgba(255,255,255,.03));
+      text-align:center;
+    }
+    .cta h3{margin-bottom:10px}
+    .cta p{margin:0 auto 22px;max-width:760px}
+    .disclaimer{
+      color:#91a0af;
+      font-size:13px;
+      line-height:1.75;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:26px 0 40px;
+      margin-top:34px;
+    }
+    footer{
+      padding:16px 0 36px;
+      color:#8ea2b8;
+      text-align:center;
+      font-size:13px;
+    }
+    @media (max-width: 1080px){
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .two-col{grid-template-columns:1fr}
+    }
+    @media (max-width: 700px){
+      .nav-links{display:none}
+      .grid{grid-template-columns:1fr}
+      .hero{padding-top:56px}
+      .lead{font-size:18px}
+      .hero-actions{flex-direction:column}
+      .btn{width:100%}
+      .container{padding:0 16px}
+      .card,.box,.cta{border-radius:22px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="/">
+        <div class="brand-badge">F</div>
+        <div>
+          FUTURITHM
+          <small>ACADEMY</small>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/courses.html">Courses</a>
+        <a href="/community.html">Community</a>
+        <a href="/resources.html">Resources</a>
+        <a href="/faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">Private Mentorship</div>
+      <h1>Work directly with a futures trader and accelerate your learning.</h1>
+      <p class="lead">
+        Futurithm Academy private mentorship is designed for beginners, developing traders,
+        and prop firm challengers who want personal guidance, structured feedback, and a
+        clear path toward consistency.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#packages">View Packages</a>
+        <a class="btn btn-secondary" href="#apply">Apply for Mentorship</a>
+      </div>
+
+      <div id="packages" class="grid">
+        <article class="card">
+          <div class="tag">Starter</div>
+          <h2>Beginner Kickstart</h2>
+          <div class="price">$99</div>
+          <div class="desc">
+            A focused private session for absolute beginners who need clarity on how futures
+            trading works and how to avoid early mistakes.
+          </div>
+          <ul>
+            <li>60 minute private Zoom session</li>
+            <li>Introduction to futures trading</li>
+            <li>NinjaTrader setup guidance</li>
+            <li>Charts, candles, and basic terminology</li>
+            <li>Risk management foundations</li>
+            <li>Live Q&amp;A</li>
+          </ul>
+          <a class="btn btn-primary" href="https://calendly.com/your-link">Book Session</a>
+        </article>
+
+        <article class="card">
+          <div class="tag">Popular</div>
+          <h2>Strategy Development</h2>
+          <div class="price">$249</div>
+          <div class="desc">
+            For traders who already started but need help with market structure, entries,
+            and building a repeatable plan.
+          </div>
+          <ul>
+            <li>2 hour private coaching call</li>
+            <li>Market structure and candlestick review</li>
+            <li>Entry timing and execution framework</li>
+            <li>Risk management plan</li>
+            <li>Trade review of your recent setups</li>
+            <li>Personalized next-step action plan</li>
+          </ul>
+          <a class="btn btn-primary" href="https://calendly.com/your-link">Book Strategy Session</a>
+        </article>
+
+        <article class="card featured">
+          <div class="tag">Best Value</div>
+          <h2>Prop Firm Coaching</h2>
+          <div class="price">$499</div>
+          <div class="desc">
+            Deep coaching for traders preparing to pass prop firm challenges with more
+            structure, discipline, and consistency.
+          </div>
+          <ul>
+            <li>3 hour deep-dive private session</li>
+            <li>Prop firm rule breakdown</li>
+            <li>Challenge-specific risk management</li>
+            <li>Trading plan and journaling setup</li>
+            <li>Psychology coaching and discipline review</li>
+            <li>Clear challenge roadmap</li>
+          </ul>
+          <a class="btn btn-primary" href="https://calendly.com/your-link">Book Coaching</a>
+        </article>
+
+        <article class="card">
+          <div class="tag">Premium</div>
+          <h2>Futurithm Mentorship</h2>
+          <div class="price">$1,200</div>
+          <div class="desc">
+            A premium mentorship experience for traders who want direct support over several
+            weeks instead of one single session.
+          </div>
+          <ul>
+            <li>4 week mentorship structure</li>
+            <li>Weekly private calls</li>
+            <li>Daily trade feedback window</li>
+            <li>Strategy development and refinement</li>
+            <li>Prop firm challenge guidance</li>
+            <li>Community access</li>
+          </ul>
+          <a class="btn btn-primary" href="https://calendly.com/your-link">Apply Now</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Who this is for</h3>
+      <p>
+        These packages are ideal for traders who want faster progress than self-study alone.
+        Whether you are trying to understand candlesticks for the first time, improve your
+        trade execution, or prepare for a funded account challenge, private mentorship gives
+        you direct feedback and a clearer path forward.
+      </p>
+      <div class="two-col">
+        <div class="box">
+          <h4>Good fit if you want to:</h4>
+          <div class="check"><b>✓</b><div>Understand futures trading without wasting months on random information</div></div>
+          <div class="check"><b>✓</b><div>Develop a cleaner strategy and trading routine</div></div>
+          <div class="check"><b>✓</b><div>Improve discipline, journaling, and risk control</div></div>
+          <div class="check"><b>✓</b><div>Prepare for a prop firm evaluation with more structure</div></div>
+        </div>
+        <div class="box">
+          <h4>What you can expect</h4>
+          <div class="check"><b>1</b><div>Clear explanations in beginner-friendly language</div></div>
+          <div class="check"><b>2</b><div>Focused guidance instead of generic theory</div></div>
+          <div class="check"><b>3</b><div>Practical next steps you can apply immediately</div></div>
+          <div class="check"><b>4</b><div>Educational support centered on structure and consistency</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply" class="cta">
+      <h3>Ready to work directly with Futurithm Academy?</h3>
+      <p>
+        Choose the package that fits your current level and book your private session.
+        Replace the booking links with your Calendly or Stripe checkout links before uploading this page to Netlify.
+      </p>
+      <div class="hero-actions" style="justify-content:center;margin-top:0">
+        <a class="btn btn-primary" href="https://calendly.com/your-link">Book via Calendly</a>
+        <a class="btn btn-secondary" href="mailto:info@futurithmacademy.com">Email Questions</a>
+      </div>
+    </section>
+
+    <div class="disclaimer">
+      Trading futures involves substantial risk and is not suitable for all traders. All mentorship,
+      coaching, and educational materials provided by Futurithm Academy are for informational and
+      educational purposes only and do not constitute financial advice, investment advice, or a
+      guarantee of trading performance.
+    </div>
+  </main>
+
+  <footer>
+    © Futurithm Academy — Private Mentorship
+  </footer>
+</body>
+</html>
