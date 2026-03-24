@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Futurithm Academy | Beginner Course 101</title>
+  <meta name="description" content="Beginner Course 101 by Futurithm Academy. Start learning futures trading foundations, chart basics, and the structure needed to progress with confidence." />
+  <style>
+    :root{
+      --bg:#04070d;
+      --bg2:#07111d;
+      --text:#eef6ff;
+      --muted:#9fb2c5;
+      --accent:#59d8ff;
+      --accent2:#35bfff;
+      --btn:#52d6ff;
+      --btnText:#07111d;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top, rgba(53,191,255,.12), transparent 35%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+    }
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1180px;margin:0 auto;padding:0 22px}
+    .site-header{
+      position:sticky;top:0;z-index:10;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background:rgba(4,7,13,.86);
+      backdrop-filter: blur(12px);
+    }
+    .header-inner{display:flex;align-items:center;justify-content:space-between;min-height:74px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand-mark{width:42px;height:42px;object-fit:contain;display:block}
+    .brand-title{font-size:18px;font-weight:700;letter-spacing:.28em;color:#fff}
+    .brand-sub{font-size:10px;letter-spacing:.35em;color:var(--accent);margin-top:4px;text-transform:uppercase}
+    .nav{display:flex;gap:26px;font-size:14px;color:#d9e8f7}
+    .hero{padding:72px 0 28px;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:start}
+    .eyebrow{
+      display:inline-flex;border:1px solid rgba(82,214,255,.2);background:rgba(82,214,255,.08);
+      border-radius:999px;padding:8px 14px;color:var(--accent);text-transform:uppercase;
+      letter-spacing:.28em;font-size:11px;margin-bottom:18px;
+    }
+    h1{font-size:clamp(38px,6vw,72px);line-height:1.03;letter-spacing:-.04em;margin:0 0 18px;max-width:780px}
+    .gradient-text{color:var(--accent)}
+    .lead{font-size:20px;line-height:1.8;color:var(--muted);max-width:760px;margin:0 0 24px}
+    .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 24px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;border-radius:16px;
+      font-weight:700;transition:.18s ease;cursor:pointer;border:1px solid transparent;
+    }
+    .btn-primary{background:linear-gradient(90deg,var(--btn),var(--accent2));color:var(--btnText);box-shadow:0 0 28px rgba(82,214,255,.18)}
+    .btn-secondary{border-color:rgba(82,214,255,.22);background:rgba(255,255,255,.03);color:var(--text)}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:720px}
+    .stat,.panel,.box,.video-wrap{
+      border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);border-radius:24px;
+      box-shadow:0 18px 48px rgba(0,0,0,.24);
+    }
+    .stat{padding:22px}
+    .kpi{color:var(--accent);font-weight:800;font-size:20px;margin-bottom:8px}
+    .small{color:#dfeafb;line-height:1.6;font-size:15px}
+    .panel{padding:28px}
+    .label{color:var(--accent);text-transform:uppercase;letter-spacing:.28em;font-size:12px;margin-bottom:14px}
+    .panel h2{margin:0 0 14px;font-size:28px;line-height:1.2}
+    .panel p,.section-text,.cta p{color:var(--muted);line-height:1.8}
+    .lesson-list{display:grid;gap:12px;margin-top:18px}
+    .lesson{background:#0d1b2b;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px 18px;color:#e6f3ff}
+    .section{padding:18px 0 46px}
+    .video-wrap{overflow:hidden;margin-top:16px}
+    .video{aspect-ratio:16/9;width:100%;border:0;display:block}
+    .section-title{font-size:34px;margin:0 0 12px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px}
+    .box{padding:28px}
+    .box h3{margin:0 0 14px;font-size:24px}
+    .check{display:flex;gap:12px;align-items:flex-start;margin:14px 0;color:#dfeafb}
+    .check b{
+      width:28px;height:28px;border-radius:999px;display:grid;place-items:center;
+      background:rgba(82,214,255,.1);color:var(--accent);font-size:14px;flex:0 0 28px;
+    }
+    .cta{
+      margin-top:28px;padding:34px;border-radius:30px;border:1px solid rgba(82,214,255,.22);
+      background:linear-gradient(180deg, rgba(82,214,255,.10), rgba(255,255,255,.03));text-align:center;
+    }
+    .cta h3{margin:0 0 10px;font-size:32px}
+    .disclaimer{color:#91a0af;font-size:13px;line-height:1.75;border-top:1px solid rgba(255,255,255,.08);padding:26px 0 40px;margin-top:34px}
+    footer{padding:16px 0 36px;color:#8ea2b8;text-align:center;font-size:13px}
+    @media (max-width: 1020px){.hero,.grid{grid-template-columns:1fr}.hero-stats{grid-template-columns:1fr 1fr 1fr}}
+    @media (max-width: 720px){.container{padding:0 16px}.nav{display:none}.hero{padding-top:52px}.lead{font-size:18px}.hero-actions{flex-direction:column}.btn{width:100%}.hero-stats{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="images/futurithm-icon.png" alt="Futurithm Academy logo" />
+        <div>
+          <div class="brand-title">FUTURITHM</div>
+          <div class="brand-sub">Academy</div>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="mentorship.html">Mentorship</a>
+        <a href="community.html">Community</a>
+        <a href="resources.html">Resources</a>
+        <a href="faq.html">FAQ</a>
+        <a href="legal.html">Legal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Beginner Course 101</div>
+        <h1>Start your <span class="gradient-text">futures trading foundation</span> with a beginner-friendly course built for clarity.</h1>
+        <p class="lead">
+          Welcome to Beginner Course 101. This course was created to help new traders understand the
+          fundamentals of futures trading, chart reading, structure, and the mindset needed to begin
+          building consistency.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#watch">Start Watching</a>
+          <a class="btn btn-secondary" href="mentorship.html">Book Private Mentorship</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="kpi">Lesson 1</div>
+            <div class="small">Your private course access is now active.</div>
+          </div>
+          <div class="stat">
+            <div class="kpi">Beginner</div>
+            <div class="small">Built specifically for new futures traders.</div>
+          </div>
+          <div class="stat">
+            <div class="kpi">Next Step</div>
+            <div class="small">Upgrade into mentorship when you want direct support.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="label">Course Access</div>
+        <h2>Welcome to Futurithm Academy</h2>
+        <p>
+          You now have access to Beginner Course 101. Watch the lesson carefully, take notes,
+          and focus on understanding the basics before moving into more advanced strategy work.
+        </p>
+        <div class="lesson-list">
+          <div class="lesson">1. Futures Trading Basics</div>
+          <div class="lesson">2. Chart Reading and Candles</div>
+          <div class="lesson">3. Risk Management Foundations</div>
+          <div class="lesson">4. Your Next Step Into Mentorship</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="watch" class="section">
+      <h2 class="section-title">Watch your course lesson</h2>
+      <p class="section-text">
+        This video is hosted privately for paying students. Watch the full lesson first, then review
+        the notes below. If you want personalized help applying what you learn, the next step is
+        private mentorship with Futurithm Academy.
+      </p>
+
+      <div class="video-wrap">
+        <iframe
+          class="video"
+          src="https://www.youtube.com/embed/JnYY-AIYPNA"
+          title="Beginner Course 101"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">What to focus on while watching</h2>
+      <div class="grid">
+        <div class="box">
+          <h3>Core learning goals</h3>
+          <div class="check"><b>✓</b><div>Understand what futures trading is and how it differs from casual investing.</div></div>
+          <div class="check"><b>✓</b><div>Learn how charts, candles, and market movement are read by active traders.</div></div>
+          <div class="check"><b>✓</b><div>Start thinking in terms of structure, discipline, and risk rather than hype.</div></div>
+          <div class="check"><b>✓</b><div>Build a better foundation before moving into prop firm challenge preparation.</div></div>
+        </div>
+        <div class="box">
+          <h3>How to get more from the course</h3>
+          <div class="check"><b>1</b><div>Take notes as you watch instead of trying to absorb everything passively.</div></div>
+          <div class="check"><b>2</b><div>Pause and replay important sections so the concepts become clear.</div></div>
+          <div class="check"><b>3</b><div>Write down questions that come up so you can bring them into mentorship later.</div></div>
+          <div class="check"><b>4</b><div>Focus on mastering the basics first before worrying about complex setups.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h3>Want direct help after the course?</h3>
+      <p>
+        Beginner Course 101 gives you the foundation. If you want personalized feedback, clearer structure,
+        and help applying these concepts to your own trading, private mentorship is the fastest next step.
+      </p>
+      <div class="hero-actions" style="justify-content:center;margin-top:0">
+        <a class="btn btn-primary" href="mentorship.html">Book Private Mentorship</a>
+        <a class="btn btn-secondary" href="resources.html">Explore Resources</a>
+      </div>
+    </section>
+
+    <div class="disclaimer">
+      Trading futures involves substantial risk and is not suitable for all traders. This course is for
+      educational purposes only and does not constitute financial advice, investment advice, or any
+      guarantee of trading performance.
+    </div>
+  </main>
+
+  <footer>
+    © Futurithm Academy — Beginner Course 101
+  </footer>
+</body>
+</html>
